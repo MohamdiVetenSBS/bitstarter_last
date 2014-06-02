@@ -8,10 +8,14 @@ app.get('/', function(request, response) {
 	response.send(fileContent.toString());
 });
 
+app.get('/img/:id', function (req, res) {
+    res.sendfile(__dirname + '/img/' + req.params.id);
+  //  console.log(req);
+});
 var port = process.env.PORT || 5000;
 app.listen(port, function() {
 	var cont = fs.readFileSync('index.html');
-	console.log(cont.toString());
+	
 
   console.log("Listening on " + port);
 });
